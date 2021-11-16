@@ -1,3 +1,12 @@
+<?php
+session_start();
+$bdd = mysqli_connect("localhost","root","root","moduleconnexion");
+$requete = mysqli_query($bdd, "SELECT * FROM `utilisateurs`");
+$users = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+mysqli_set_charset($bdd, 'utf8');
+$style = '<link rel="stylesheet" href="style.css">';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +20,16 @@
     <header> 
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="inscription.php">News</a></li>
-                <li><a href="connexion.php">Contact</a></li>
-                <li><a href="profil.php">About</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">Profil</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-
-        </section>
+       
     </main>
 </body>
 </html>
