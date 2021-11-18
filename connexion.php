@@ -17,14 +17,20 @@ var_dump($result_password);
 echo '</pre>';
 
 if(!empty($result) && isset($result)){
-    if(password_verify($password, $result_password[0][0])){
-        echo "verified";
-       
-        $_SESSION['login'] = $login;
-        
-        // header('Location:index.php');
+    if($login === "admin" && $password === "admin" ){
+        echo "vs etes l'admin";
     }else{
-        echo "vos indentifiants sont incorrects";
+
+    
+        if(password_verify($password, $result_password[0][0])){
+            echo "verified";
+        
+            $_SESSION['login'] = $login;
+            
+            // header('Location:index.php');
+        }else{
+            echo "vos indentifiants sont incorrects";
+        }
     }
 }
 

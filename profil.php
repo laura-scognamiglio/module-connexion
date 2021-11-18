@@ -2,10 +2,12 @@
 session_start();
 $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
+$update_recup = 
 
 
 
 if(isset($_POST['valider'])){
+   
     $name = htmlspecialchars($_POST['name']);
     $surname = htmlspecialchars($_POST['surname']);
     $login = htmlspecialchars($_POST['login']);
@@ -13,7 +15,7 @@ if(isset($_POST['valider'])){
     $passwordconfirm = htmlspecialchars($_POST['passwordconfirm']);
 
     if((!empty($name)) && !empty($surname) && !empty($login) && !empty($password)){
-        $update = mysqli_query("UPDATE `utilisateurs` SET `login`='$login',`prenom`='$name',`nom`='$surname',`password`='$password' WHERE 1");
+        $update = mysqli_query("UPDATE `utilisateurs` SET `login`='$login',`prenom`='$name',`nom`='$surname',`password`='$password' WHERE `id` = $id");
     }
 }
 echo '<pre>';
@@ -33,7 +35,7 @@ echo '</pre>';
     <main>
     <section class= connect_form>
         <form action="connexion.php" method="post">
-                <h2 class="text-center">Connexion</h2>       
+                <h2 class="text-center">Profil</h2>       
                 <div class="form-group">
                     <label for="name">Nouveau prénom:</label><br>
                     <input type="name" name="name" class="form-control" placeholder="Prénom" required="required" autocomplete="off">

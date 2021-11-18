@@ -19,25 +19,35 @@ if(isset($_POST['name'])
     $password = htmlspecialchars($_POST['password']);
     $passwordconfirm = htmlspecialchars($_POST['passwordconfirm']);
     $login_rqst = mysqli_query($bdd, "SELECT `login`, `password` FROM `utilisateurs` WHERE `login` = '$login'" );
-        echo '<pre>';
-        var_dump($login_rqst);
-        echo '</pre>';
-    if(empty($login)){
-        $name_err = "veuillez entré un login";
-        echo $name_err; 
-    } else { 
-        
-        if($password == $passwordconfirm){
+    $login_exist = mysqli_fetch_assoc($login_rqst);
 
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $add_user = mysqli_query($bdd,"INSERT INTO `utilisateurs`( login, prenom, nom, password) VALUES ('$name','$surname','$login','$hashed_password')");
-            header('Location:connexion.php'); 
-            
+        echo '<pre>';
+        var_dump($login_exist);
+        var_dump($login);
+        echo '</pre>';
+
+
+    if(empty($login)){
+        $name_err = "veuillez entrer un login";
+        echo $name_err; 
+    } elseif(($login) === ($login_exist["login"]) ){ 
         
-        } 
+            $login_err = "ce login est déjà pris";
+            echo $login_err;
+
+        } elseif($password == $passwordconfirm){
+
+        
+
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                $add_user = mysqli_query($bdd,"INSERT INTO `utilisateurs`( login, prenom, nom, password) VALUES ('$name','$surname','$login','$hashed_password')");
+                // header('Location:connexion.php'); 
+                
+            
+            echo "inscrit";
   
     
-
+        }
         // } else {
         //     $sql = "SELECT id FROM `utilisateurs` WHERE prenom = ?";
         //     if($stmt = mysqli_prepare($requete, $sql)){
@@ -55,7 +65,7 @@ if(isset($_POST['name'])
 
         
     }
-}
+
 
 
 ?>
