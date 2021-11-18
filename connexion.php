@@ -1,7 +1,32 @@
 <?php
+ session_start();
+// require('inscription.php');
+$bdd = mysqli_connect("localhost","root","root","moduleconnexion");
+mysqli_set_charset($bdd, 'utf8');
+
+$login = htmlspecialchars($_POST['login']);
+$password = htmlspecialchars($_POST['password']);
 
 
+$login_rqst = mysqli_query($bdd, "SELECT `login`, `password` FROM `utilisateurs` WHERE `login` = '$login'" );
+$login_password = mysqli_query($bdd, "SELECT  `password` FROM `utilisateurs` WHERE `login` = '$login'" );
+$result = mysqli_fetch_all($login_rqst);
+$result_password = mysqli_fetch_all($login_password);
+echo '<pre>';
+var_dump($result_password);
+echo '</pre>';
 
+if(!empty($result) && isset($result)){
+    if(password_verify($password, $result_password[0][0])){
+        echo "verified";
+       
+        $_SESSION['login'] = $login;
+        
+        // header('Location:index.php');
+    }else{
+        echo "vos indentifiants sont incorrects";
+    }
+}
 
 
 ?>
@@ -24,10 +49,10 @@
         <form action="connexion.php" method="post">
                 <h2 class="text-center">Connexion</h2>       
                 <div class="form-group">
-                    <input type="login" name="login" class="form-control" placeholder="Login" required="required" autocomplete="off">
+                    <input type="login" name="login" class="form-control" placeholder="Login" required="required" autocomplete="on">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="on">
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-primary btn-block">Connexion</button>
