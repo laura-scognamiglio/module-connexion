@@ -6,19 +6,21 @@ $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 
 // require('index.php');
-
+/**
+ * 
+ */
 if(isset($_POST['name']) 
 && isset($_POST['surname']) 
 && isset($_POST['login']) 
 && isset($_POST['password']))
 // && isset($_POST['submit']));
 {
-    $name = htmlspecialchars($_POST['name']);
-    $surname = htmlspecialchars($_POST['surname']);
-    $login = htmlspecialchars($_POST['login']);
-    $password = htmlspecialchars($_POST['password']);
-    $passwordconfirm = htmlspecialchars($_POST['passwordconfirm']);
-    $login_rqst = mysqli_query($bdd, "SELECT `login`, `password` FROM `utilisateurs` WHERE `login` = '$login'" );
+    $name = htmlspecialchars(trim($_POST['name']));
+    $surname = htmlspecialchars(trim($_POST['surname']));
+    $login = htmlspecialchars(trim($_POST['login']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
+    $login_rqst = mysqli_query($bdd, "SELECT `login` FROM `utilisateurs` WHERE `login` = '$login'" );
     $login_exist = mysqli_fetch_assoc($login_rqst);
 
         echo '<pre>';
@@ -30,7 +32,7 @@ if(isset($_POST['name'])
     if(empty($login)){
         $name_err = "veuillez entrer un login";
         echo $name_err; 
-    } elseif(($login) === ($login_exist["login"]) ){ 
+    } elseif(($login) === ($login_exist["login"])){ 
         
             $login_err = "ce login est déjà pris";
             echo $login_err;
@@ -48,21 +50,6 @@ if(isset($_POST['name'])
   
     
         }
-        // } else {
-        //     $sql = "SELECT id FROM `utilisateurs` WHERE prenom = ?";
-        //     if($stmt = mysqli_prepare($requete, $sql)){
-        //         mysqli_stmt_bind_param($stmt, "s", $param_name);
-        //         $param_name = trim($_POST['name']);
-        //     }
-        // }   
-        // if(empty(trim($_POST['surname']))){
-        //     $surname_err = "veuillez entrer votre nom";
-
-        // } else {
-        //     $sql = "SELECT id FROM `utilisateurs` WHERE nom = ?";
-        // }   
-
-
         
     }
 

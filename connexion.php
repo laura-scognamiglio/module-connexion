@@ -1,37 +1,44 @@
 <?php
  session_start();
-// require('inscription.php');
 $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 
-$login = htmlspecialchars($_POST['login']);
-$password = htmlspecialchars($_POST['password']);
+$login = htmlspecialchars(trim($_POST['login']));
+$password = htmlspecialchars(trim($_POST['password']));
 
 
-$login_rqst = mysqli_query($bdd, "SELECT `login`, `password` FROM `utilisateurs` WHERE `login` = '$login'" );
-$login_password = mysqli_query($bdd, "SELECT  `password` FROM `utilisateurs` WHERE `login` = '$login'" );
-$result = mysqli_fetch_all($login_rqst);
-$result_password = mysqli_fetch_all($login_password);
+$query = mysqli_query($bdd,"SELECT * FROM `utilisateurs` WHERE `login`= '$login' ");
+$result = mysqli_fetch_assoc($query);
+
+
 echo '<pre>';
-var_dump($result_password);
+var_dump($_SESSION);
 echo '</pre>';
 
 if(!empty($result) && isset($result)){
-    if($login === "admin" && $password === "admin" ){
-        echo "vs etes l'admin";
-    }else{
-
-    
-        if(password_verify($password, $result_password[0][0])){
-            echo "verified";
-        
-            $_SESSION['login'] = $login;
-            
-            // header('Location:index.php');
+   
+        if(password_verify($password, $result['password'])){
+            if($login === "admin" ){
+            echo "vs etes l'admin";
+            $_SESSION['admin'] = $result;
         }else{
-            echo "vos indentifiants sont incorrects";
+            echo "verified";
+            $_SESSION['user'] = $result;
+            header('Location:index.php');
         }
+    }   
+    else{
+    echo "vos indentifiants sont incorrects";
+        
     }
+
+}
+
+if(isset($_POST["deco"])){
+    session_unset();
+    $deco = "vous êtes bien déconecté";
+    echo $deco;
+
 }
 
 
@@ -55,13 +62,14 @@ if(!empty($result) && isset($result)){
         <form action="connexion.php" method="post">
                 <h2 class="text-center">Connexion</h2>       
                 <div class="form-group">
-                    <input type="login" name="login" class="form-control" placeholder="Login" required="required" autocomplete="on">
+                    <input type="login" name="login" class="form-control" placeholder="Login"  autocomplete="on">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="on">
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe"  autocomplete="on">
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-primary btn-block">Connexion</button>
+                    <button type="submit" name="deco" class="btn btn-primary btn-block">Deconnexion</button>
                 </div>   
             </form>
         </div>
