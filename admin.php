@@ -6,13 +6,15 @@ $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs`");
 $admin_query = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 
-// $id = $admin_query['id'];
-// $query2 = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE id = $id "); 
-// $result = mysqli_fetch_all($query2);
 
+if(isset($_POST["delete"])){
+$query2 = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE id = {$_POST['delete']}"); 
+
+}
 
 echo '<pre>';
 var_dump($admin_query);
+var_dump($_POST);
 echo '</pre>';
 
 ?>
@@ -43,7 +45,7 @@ echo '</pre>';
         <td><?=$result["prenom"];?></td>
         <td><?=$result["login"];?></td>
         <td><?=$result["password"];?></td>
-        <td><form action="" method="post"><input type="submit" name="delete" value="delete"></form></td>
+        <td><form action="" method="post"><button type="submit" name="delete" value="<?=$result["id"];?>">delete</button></form></td>
     </tr>
 
 <?php endforeach;?>
