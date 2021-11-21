@@ -3,8 +3,8 @@
 @font-face{
     font-family: "nightydemo";
     src: url(assets/nightydemo.otf) format('opentype');
-    font-family: "radionewsman";
-    src: url(assets/radionewsman.ttf) format('truetype');
+    font-family: "neuneu";
+    src: url(assets/neuneu.otf) format('opentype');
     
 }
 
@@ -17,71 +17,99 @@
     
 }
 
-body {
+.indexBody {
     scroll-behavior: smooth;
-    background: url('assets/tel.jpg') no-repeat fixed center;
+    background-color: #EEE7C1;
 }
 
 
-ul {
+.navul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   
-  
-  
 }
 
-li {
+.navli {
   float: left;
 }
 
 .libtndeco{
     float: right;
-    padding:4px 4px
+    padding:6px 4px;
+    
+    
 }
 
 .btndeco{
-    box-shadow: 0px 1px 0px 0px #685634;
-	background-color: transparent;
-	border-radius:8px;
-	border:1px solid #685634;
-	display:inline-block;
-	cursor:pointer;
-    font-family: "nightydemo";
-    font-size:30px;
-	color: #FCBF49;
-	padding:8px 12px;
+    padding: 10px 25px;
+    color: #353E28;
+    font-family: "neuneu";
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+   
 }
 
 .btndeco:hover{
    color: #F1A204;
-	
+   transition: all 0.3s ease;
+	 cursor: pointer;
+    
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    background: #EEE7C1;
+    box-shadow: inset -8px 6px 14px #cac4a4,
+                inset 8px -6px 14px #ffffde;
+    border: none;
 }
 .btndeco:active{
     position:relative;
 	top:1px;
 }
 
-li a {
-  display: block;
-  color: #FCBF49;
-  font-family: "nightydemo";
-  font-size:30px;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.navbar li a {
+    display: block;
+    color: #353E28;
+    font-family: "neuneu";
+    font-size:15px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-li a:hover {
-  
-  color: #F1A204;
+.navbar li a:hover {
+    color: #F1A204;
+    transition: all 0.3s ease;
 }
+
+.indexSection{
+    display: flex;
+    justify-content: center;
+}
+
 .title{
-    color: #FCBF49;
-    font-family: "nightydemo";
-    font-size:100px;
-
+    color: #353E28;
+    font-family: "neuneu";
+    font-size:235px;
+    padding-top: 80px;
+    padding-left: 4px;
+    transition: all 0.3s ease;
    
+}
+
+.title:hover{
+    color: #F1A204;
+}
+.indexpic{
+    display: flex;
+    justify-content: center;
+}
+.villaOrigin{
+    max-width: 80%;
+	height: auto;
+    
 }

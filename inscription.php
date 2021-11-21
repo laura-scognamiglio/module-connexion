@@ -61,7 +61,7 @@ if(isset($_POST['name']) && !empty($_POST['name'])
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Welcome</title>
 </head>
-<body>
+<body class="inscBody">
     <header> 
        
     </header>
