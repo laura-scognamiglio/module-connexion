@@ -1,5 +1,9 @@
 <?php
 session_start();
+include('navbar.php');
+$style = '<link rel="stylesheet" href="style.php" type="text/css">';
+echo $style;
+
 $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs`");
@@ -24,6 +28,7 @@ echo '</pre>';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <title>Document</title>
 </head>
 <body>

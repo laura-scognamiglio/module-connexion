@@ -1,18 +1,18 @@
 <?php
-
+ include('navbar.php');
+ $style = '<link rel="stylesheet" href="style.php" type="text/css">';
+echo $style;
 $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
-
-
 mysqli_set_charset($bdd, 'utf8');
 
 // require('index.php');
 /**
  * 
  */
-if(isset($_POST['name']) 
-&& isset($_POST['surname']) 
-&& isset($_POST['login']) 
-&& isset($_POST['password']))
+if(isset($_POST['name']) && !empty($_POST['name']) 
+&& isset($_POST['surname']) && !empty($_POST['surname'])
+&& isset($_POST['login']) && !empty($_POST['login']) 
+&& isset($_POST['password']) && !empty($_POST['password']))
 // && isset($_POST['submit']));
 {
     $name = htmlspecialchars(trim($_POST['name']));
@@ -39,15 +39,10 @@ if(isset($_POST['name'])
 
         } elseif($password == $passwordconfirm){
 
-        
-
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $add_user = mysqli_query($bdd,"INSERT INTO `utilisateurs`( login, prenom, nom, password) VALUES ('$name','$surname','$login','$hashed_password')");
-                // header('Location:connexion.php'); 
-                
-            
-            echo "inscrit";
-  
+                echo "inscrit";
+                header('Location:connexion.php'); 
     
         }
         
@@ -63,7 +58,7 @@ if(isset($_POST['name'])
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <title>Welcome</title>
 </head>
 <body>
@@ -79,7 +74,7 @@ if(isset($_POST['name'])
                     <input type="name" name="name" class="form-control" placeholder="Prénom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input type="surname" name="surname" class="form-control" placeholder="Nom" required="required" autocomplete="on">
+                    <input type="surname" name="surname" class="form-control" placeholder="Nom"  autocomplete="on">
                 </div>
                 <div class="form-group">
                     <input type="login" name="login" class="form-control" placeholder="Login" required="required" autocomplete="on">
