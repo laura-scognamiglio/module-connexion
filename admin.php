@@ -16,10 +16,10 @@ $query2 = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE id = {$_POST['dele
 
 }
 
-echo '<pre>';
-var_dump($admin_query);
-var_dump($_POST);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($admin_query);
+// var_dump($_POST);
+// echo '</pre>';
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ echo '</pre>';
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Document</title>
 </head>
-<body>
+<body class="adminBody">
     <table>
 <thead>
     <tr>
@@ -50,7 +50,7 @@ echo '</pre>';
         <td><?=$result["prenom"];?></td>
         <td><?=$result["login"];?></td>
         <td><?=$result["password"];?></td>
-        <td><form action="" method="post"><button type="submit" name="delete" value="<?=$result["id"];?>">delete</button></form></td>
+        <td><form action="" method="post"><button class="btn btn-primary btn-block" type="submit" name="delete" value="<?=$result["id"];?>">delete</button></form></td>
     </tr>
 
 <?php endforeach;?>

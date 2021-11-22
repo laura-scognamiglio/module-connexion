@@ -15,9 +15,9 @@ $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs` WHERE `login`= '$login'
 $result = mysqli_fetch_assoc($query);
 
 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
 
 if(!empty($result) && isset($result)){
    
@@ -57,7 +57,7 @@ if(isset($_POST["deco"])){
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Welcome</title>
 </head>
-<body>
+<body class="conBody">
     <header> 
         
     </header>

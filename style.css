@@ -17,7 +17,7 @@
     
 }
 
-.indexBody {
+.indexBody, .inscBody, .conBody, .profilBody, .adminBody{
     scroll-behavior: smooth;
     background-color: #EEE7C1;
 }
@@ -101,8 +101,9 @@
    
 }
 
-.title:hover{
+.title:hover, .text-center:hover{
     color: #F1A204;
+    transition: all 0.3s ease;
 }
 .indexpic{
     display: flex;
@@ -112,4 +113,66 @@
     max-width: 80%;
 	height: auto;
     
+}
+.connect_form{
+    display: flex;
+    justify-content: center;
+   
+}
+.form-group{
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    
+}
+.form-group-profil{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.form-control{
+    position: relative;
+    padding: 4px;
+    display: inline-block;
+    border-radius: 8px;
+    background: #EEE7C1;
+    box-shadow: inset -8px 6px 14px #cac4a4,
+                inset 8px -6px 14px #ffffde;
+    border: none;
+   
+}
+
+.text-center{
+    color: #353E28;
+    font-family: "neuneu";
+    font-size: 50px;
+    padding-top: 80px;
+    padding-left: 4px;
+    transition: all 0.3s ease;
+    
+}
+
+.btn{
+    padding: 10px 25px;
+    color: #353E28;
+    font-family: "neuneu";
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+}
+
+.btn:hover{
+    color: #F1A204;
+    transition: all 0.3s ease;
+      cursor: pointer;
+     
+     position: relative;
+     display: inline-block;
+     border-radius: 8px;
+     background: #EEE7C1;
+     box-shadow: inset -8px 6px 14px #cac4a4,
+                 inset 8px -6px 14px #ffffde;
+     border: none;
 }

@@ -69,7 +69,7 @@ if(isset($_POST['name']) && !empty($_POST['name'])
     <main>
     <section class= connect_form>
         <form action="inscription.php" method="post">
-                <h2 class="text-center">Inscription</h2>       
+                <h2 class="text-center">INscr*pt*on</h2>       
                 <div class="form-group">
                     <input type="name" name="name" class="form-control" placeholder="Prénom" required="required" autocomplete="off">
                 </div>
@@ -86,7 +86,7 @@ if(isset($_POST['name']) && !empty($_POST['name'])
                     <input type="password" name="passwordconfirm" class="form-control" placeholder="Confimer le mot de passe" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" name= "submit" class="btn btn-primary btn-block">Inscription</button>
+                    <button type="submit" name= "submit" class="btn btn-primary btn-block">DONE</button>
                 </div>   
             </form>
         </div>

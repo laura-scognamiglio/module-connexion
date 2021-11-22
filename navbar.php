@@ -12,19 +12,19 @@
         <nav class= "navbar">
             <form action="index.php" method="post">
             <ul class="navul">
-                <li class="navli"><a href="index.php">Accueil</a></li>
-                <li class="navli"><a href="inscription.php">Inscription</a></li>
-                <li class="navli"><a href="connexion.php">Connexion</a></li>
+                <li class="navli"><a href="index.php">ACcuei/</a></li>
+                <li class="navli"><a href="inscription.php">INscr*pt*on</a></li>
+                <li class="navli"><a href="connexion.php">CoNneX*on</a></li>
                 <!-- <li><a href="profil.php">Profil</a></li> -->
                 <!-- balise php avec la condition de reconnaisance du profil admin -->
                 <?php
                 if (isset($_SESSION['admin'])){
-                    echo ('<li class="navli"><a href="admin.php">Admin</a></li>');
-                    echo ('<li class="navli"><button type="submit" name="deco" class="btn btn-primary btn-block">Deconnexion</button></li>');
+                    echo ('<li class="navli"><a href="admin.php">Adm*n</a></li>');
+                    echo ('<li class="libtndeco"><button type="submit" name="deco" class="btn btn-primary btn-block">X</button></li>');
                 }
                 if(isset($_SESSION['user'])){
-                    echo ('<li class="navli"><a href="profil.php">Profil</a></li>');
-                    echo ('<li class="libtndeco"><button class="btndeco"  type="submit" name="deco"  >Deconnexion</button></li>');
+                    echo ('<li class="navli"><a href="prof*/.php">Profil</a></li>');
+                    echo ('<li class="libtndeco"><button class="btndeco"  type="submit" name="deco"  >X</button></li>');
                 }
                 if(isset($_POST['deco'])){
                     session_destroy(); 
