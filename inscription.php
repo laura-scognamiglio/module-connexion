@@ -3,7 +3,7 @@
  * connexion a la base de donnée et inclus la navbar. 
  */
  include('navbar.php');
-$bdd = mysqli_connect("localhost","root","root","moduleconnexion");
+$bdd = mysqli_connect("localhost","root","root","laura-scognamiglio_moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 
 

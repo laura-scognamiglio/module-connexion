@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 16 nov. 2021 à 11:54
+-- Généré le : lun. 22 nov. 2021 à 17:23
 -- Version du serveur : 5.7.34
 -- Version de PHP : 8.0.8
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `moduleconnexion`
+-- Base de données : `laura-scognamiglio_moduleconnexion`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,10 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin');
+(27, 'e e', 'e e', 'e e', '$2y$10$vIL/oIy8oz5nbEHboItr2.dSS.0fE7pFRFUFGjZcSS.sSh6n6Lewy'),
+(28, 'admin', 'admin', 'admin', '$2y$10$6QatZcF8Cp9CAGemhg2ije/Gb3fTQFsGwcIuJ2POPZLXEdrsa8y5q'),
+(33, 'k', 'k', 'k', '$2y$10$ozNx2wQXG9eb.JtUYjKByuiAX2eAIkFzQxnJ5RrLHJml35eGGKB5e'),
+(35, 'low', 'low', 'low', '$2y$10$PkoicHUnLPQ.u7yCihDqduuut7fIn1nRbVMAktQJKsVVmPWXbHBSS');
 
 --
 -- Index pour les tables déchargées
@@ -60,7 +63,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

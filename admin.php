@@ -4,7 +4,7 @@ include('navbar.php');
 $style = '<link rel="stylesheet" href="style.php" type="text/css">';
 echo $style;
 
-$bdd = mysqli_connect("localhost","root","root","moduleconnexion");
+$bdd = mysqli_connect("localhost","root","root","laura-scognamiglio_moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs`");
 $admin_query = mysqli_fetch_all($query, MYSQLI_ASSOC);
