@@ -9,17 +9,14 @@ mysqli_set_charset($bdd, 'utf8');
 $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs`");
 $admin_query = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-
+/**
+ * permet de supprimer les utilisateurs de la base de données.
+ */
 
 if(isset($_POST["delete"])){
 $query2 = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE id = {$_POST['delete']}"); 
 
 }
-
-// echo '<pre>';
-// var_dump($admin_query);
-// var_dump($_POST);
-// echo '</pre>';
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +29,7 @@ $query2 = mysqli_query($bdd,"DELETE FROM `utilisateurs` WHERE id = {$_POST['dele
     <title>Document</title>
 </head>
 <body class="adminBody">
-    <table>
+    <table class="tableau">
 <thead>
     <tr>
         <td>id</td>

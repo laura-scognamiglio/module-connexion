@@ -23,6 +23,7 @@
 }
 
 
+
 .navul {
   list-style-type: none;
   margin: 0;
@@ -114,23 +115,59 @@
 	height: auto;
     
 }
-.connect_form{
+.inscripic{
+    z-index: -1;
+    transform: translate(60px,-220px);
     display: flex;
     justify-content: center;
-   
+}
+
+.villaDessus{
+    max-width: 80%;
+	height: auto;
+}
+
+.connect_form{
+
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    z-index: 2;
+}
+.form{
+    padding-top: 10px;
+     background: rgba(53, 62, 40, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 40%;
+    z-index: 2;
 }
 .form-group{
     display: flex;
     justify-content: center;
     padding: 4px;
-    
+    z-index: 2;
 }
+
+input:focus{
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
 .form-group-profil{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+   
+    font-family: 'Playfair Display', serif;
 }
+
+
 .form-control{
     position: relative;
     padding: 4px;
@@ -144,13 +181,25 @@
 }
 
 .text-center{
+    display: flex;
+    justify-content: center;
     color: #353E28;
     font-family: "neuneu";
     font-size: 50px;
     padding-top: 80px;
+    padding-bottom: 70px;
     padding-left: 4px;
-    transition: all 0.3s ease;
+   
     
+}
+.text-error, .mssg{
+    color: #353E28;
+    font-family: "neuneu";
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4px;
 }
 
 .btn{
@@ -161,6 +210,7 @@
     font-weight: 500;
     background: transparent;
     border: none;
+    z-index: 2;
 }
 
 .btn:hover{
@@ -175,4 +225,22 @@
      box-shadow: inset -8px 6px 14px #cac4a4,
                  inset 8px -6px 14px #ffffde;
      border: none;
+     z-index: 2;
+}
+
+.tableau{
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.tableau td{
+    padding: 4px;
+}
+.tableau tr{
+    padding: 4px;
+    font-size: 20px;
 }

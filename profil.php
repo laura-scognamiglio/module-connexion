@@ -1,8 +1,9 @@
 <?php
+/**
+ * connexion a la base de donnée et inclus la navbar. recupère la session. identifie la session via le login
+ */
 session_start();
 include('navbar.php');
-$style = '<link rel="stylesheet" href="style.php" type="text/css">';
-echo $style;
 $bdd = mysqli_connect("localhost","root","root","moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 $slogin = $_SESSION['user']['login'];
@@ -11,6 +12,9 @@ $query = mysqli_query($bdd,"SELECT * FROM `utilisateurs` WHERE `login`= '$slogin
 $result = mysqli_fetch_assoc($query);
 
 
+/**
+ * si bouton enclencher vérifie que les données modifiées sont valide, requete sql les mets à jours et destruction de la session pour obliger l'user a se reconnecter avec ses nouveaux identifiants
+ */
 if(isset($_POST['valider'])){
    
     $new_name = htmlspecialchars(trim($_POST['name']));
@@ -19,15 +23,14 @@ if(isset($_POST['valider'])){
     $new_password = htmlspecialchars(trim($_POST['password']));
     $new_passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+    
     $login = $result['login'];
-
-    // if((!empty($name)) && !empty($surname) && !empty($login) && !empty($password)){
     $update = ("UPDATE `utilisateurs` SET `login`='$new_login',`prenom`='$new_name',`nom`='$new_surname',`password`='$hashed_password' WHERE `login` = '$login'");
     $update_new = mysqli_query($bdd, $update);
-    // $_SESSION['user'] = $result;
+
     session_destroy();
     header('Location:connexion.php');
-    // }
+   
 }
 
 // echo '<pre>';
@@ -48,7 +51,7 @@ if(isset($_POST['valider'])){
     <main>
     <section class= connect_form>
         <form action="profil.php" method="post">
-                <h2 class="text-center">Profil</h2>       
+                <h2 class="text-center">Prof*/ de <?= $_SESSION['user']['prenom'] ?></h2>       
                 <div class="form-group-profil">
                     <label for="name">Nouveau prénom:</label><br>
                     <input type="name" name="name" class="form-control" placeholder="Prénom" required="required" value ="<?php echo $_SESSION['user']['prenom'] ?>" autocomplete="off">

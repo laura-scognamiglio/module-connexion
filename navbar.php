@@ -10,11 +10,12 @@
     <header> 
        
         <nav class= "navbar">
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" >
             <ul class="navul">
                 <li class="navli"><a href="index.php">ACcuei/</a></li>
                 <li class="navli"><a href="inscription.php">INscr*pt*on</a></li>
                 <li class="navli"><a href="connexion.php">CoNneX*on</a></li>
+                <li class="navli"><a href="https://github.com/laura-scognamiglio/module-connexion" target="_blank">G*t Hub</a></li>
                 <!-- <li><a href="profil.php">Profil</a></li> -->
                 <!-- balise php avec la condition de reconnaisance du profil admin -->
                 <?php
@@ -22,10 +23,12 @@
                     echo ('<li class="navli"><a href="admin.php">Adm*n</a></li>');
                     echo ('<li class="libtndeco"><button type="submit" name="deco" class="btn btn-primary btn-block">X</button></li>');
                 }
+               // balise php avec la condition de reconnaisance du profil user
                 if(isset($_SESSION['user'])){
-                    echo ('<li class="navli"><a href="prof*/.php">Profil</a></li>');
+                    echo ('<li class="navli"><a href="profil.php">Prof*/</a></li>');
                     echo ('<li class="libtndeco"><button class="btndeco"  type="submit" name="deco"  >X</button></li>');
                 }
+                 // destruction de la session si bouton deconnexion enclencher
                 if(isset($_POST['deco'])){
                     session_destroy(); 
                 }
