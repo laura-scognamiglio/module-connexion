@@ -4,7 +4,7 @@
  */
  session_start();
  include('navbar.php');
-$bdd = mysqli_connect("localhost","root","root","laura-scognamiglio_moduleconnexion");
+$bdd = mysqli_connect("localhost","laura-scog","Mcrlow1708","laura-scognamiglio_moduleconnexion");
 mysqli_set_charset($bdd, 'utf8');
 
 
