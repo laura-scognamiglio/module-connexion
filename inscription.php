@@ -52,10 +52,10 @@ if(isset($_POST['name']) && !empty($_POST['name'])
                 <?php
                 
 /**
- * s'assure que tous les chanps sont bien remplis et proccède aux comparage de login existant dans la base de données
+ * s'assure que tous les chanps sont bien remplis et proccède aux comparaison de login existant dans la base de données
  */
                     
-                     if(empty($login) || (empty($name) || (empty($surname) ||(empty($password)  )))){
+                     if(empty($login) || (empty($name) || (empty($surname) ||(empty($password) )))){
 
                     echo ('<p class="text-error">A field is empty</p>');
                     }
